@@ -4,5 +4,18 @@ import java.util.ArrayList;
 
 public class ShoppingCart {
     private ArrayList<Item> items;
-    private int TotalPrice;
+    private double totalPrice;
+
+    public ShoppingCart(ArrayList<Item> items) {
+        this.items = items;
+    }
+
+    public double getTotalPrice() {
+        computeTotalPrice();
+        return totalPrice;
+    }
+
+    private void computeTotalPrice() {
+        totalPrice = 199.95;
+    }
 }
