@@ -16,6 +16,10 @@ public class ShoppingCart {
     }
 
     private void computeTotalPrice() {
-        totalPrice = 199.95;
+        for (Item item : items) {
+            totalPrice += item.getTotalPrice();
+        }
+
+        totalPrice = (double) Math.round(totalPrice * 100) / 100;
     }
 }
