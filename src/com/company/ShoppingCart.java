@@ -5,6 +5,7 @@ import java.util.ArrayList;
 public class ShoppingCart {
     private ArrayList<Item> items;
     private double totalPrice;
+    private double totalTax;
 
     public ShoppingCart(ArrayList<Item> items) {
         this.items = items;
@@ -21,5 +22,15 @@ public class ShoppingCart {
         }
 
         totalPrice = (double) Math.round(totalPrice * 100) / 100;
+    }
+
+    public double getTotalTax() {
+        for (Item item : items) {
+            totalTax += item.getTaxAmount();
+        }
+
+        totalTax = (double) Math.round(totalTax * 100) / 100;
+
+        return totalTax;
     }
 }

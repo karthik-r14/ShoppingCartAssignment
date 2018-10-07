@@ -14,7 +14,6 @@ public class Item {
     }
 
     private void computeTotalPrice() {
-        taxAmount = itemPrice * taxRate * 0.01;
         totalPrice = itemPrice + taxAmount;
         totalPrice = (double) Math.round(totalPrice * 100) / 100;
     }
@@ -28,7 +27,18 @@ public class Item {
     }
 
     public double getTotalPrice() {
+        computeTax();
         computeTotalPrice();
         return totalPrice;
     }
+
+    private void computeTax() {
+        taxAmount = itemPrice * taxRate * 0.01;
+    }
+
+    public double getTaxAmount() {
+        computeTax();
+        return taxAmount;
+    }
+
 }

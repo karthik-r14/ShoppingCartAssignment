@@ -26,4 +26,11 @@ public class ItemTest {
 
         assertEquals(44.99, item.getTotalPrice(), 0.01);
     }
+
+    @Test
+    public void shouldReturnTaxAmountWhenGetTaxAmountIsInvoked() throws Exception {
+        Item item = new Item("DOVE", 39.99, 12.5);
+
+        assertEquals(5, item.getTaxAmount(), 0.01);
+    }
 }

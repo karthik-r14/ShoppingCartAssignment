@@ -42,4 +42,21 @@ public class ShoppingCartTest {
 
         assertEquals(319.92, shoppingCart.getTotalPrice(), 0.01);
     }
+
+    @Test
+    public void shouldShowTotalPriceWhenTwoDoveSoapsAndTwoAxeDeoAreAddedToTheCart() throws Exception {
+        Item dove = new Item("DOVE", 39.99, 12.5);
+        Item axeDeo = new Item("AxeDeo", 99.99, 12.5);
+
+        ArrayList<Item> items = new ArrayList<>();
+        items.add(dove);
+        items.add(dove);
+        items.add(axeDeo);
+        items.add(axeDeo);
+
+        ShoppingCart shoppingCart = new ShoppingCart(items);
+
+        assertEquals(314.96, shoppingCart.getTotalPrice(), 0.01);
+        assertEquals(35, shoppingCart.getTotalTax(), 0.01);
+    }
 }
